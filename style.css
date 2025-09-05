@@ -50,7 +50,7 @@ nav a.active {
     height: 100%;  /*hauteur de la bannière, modifiable */
     width: 100%;
 
-    
+ .hero-text   {
     text-align: center; /* centre horizontalement */
     color: #0077B6;     /* couleur du texte, bleu océan */
 }
