@@ -45,9 +45,14 @@ nav a.active {
 /* Hero accueil */
 .hero {
   text-align: center;
-    background: url('images/hero.png') no-repeat center/cover;
+    background: url('images/hero.png') no-repeat center center; /* centre horizontal + vertical */
+    background-size: cover; /* adapte l'image à la taille du bloc */
     color: white;
-    padding: 100px 20px;
+    padding: 100px 20px; /* tu peux réduire la hauteur si c'est trop grand */
+    height: 400px; /* définit une hauteur fixe pour la bannière */
+    display: flex;
+    align-items: center; /* centre verticalement le texte */
+    justify-content: center; /* centre horizontalement le texte */
 }
 
 .hero h2 {
