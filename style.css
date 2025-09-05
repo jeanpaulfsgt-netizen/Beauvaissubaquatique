@@ -56,7 +56,7 @@ nav a.active {
     color: #0077B6;
 }
 .hero-text {
-    position: absolute; /* positionnement par rapport à .hero */
+    position: relative; /* positionnement par rapport à .hero */
     bottom: 20px;       /* distance depuis le bas de la bannière */
     width: 100%;
     text-align: center;
