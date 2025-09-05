@@ -55,7 +55,13 @@ nav a.active {
     align-items: center;     /* centre horizontalement */
     color: #0077B6;
 }
-
+.hero-text {
+    position: absolute; /* positionnement par rapport à .hero */
+    bottom: 20px;       /* distance depuis le bas de la bannière */
+    width: 100%;
+    text-align: center;
+    color: #0077B6;     /* ou le bleu que tu veux */
+}
 .hero h2 {
   font-size: 2.5rem;
 }
