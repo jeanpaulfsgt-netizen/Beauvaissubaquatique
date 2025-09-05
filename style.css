@@ -51,6 +51,10 @@ nav a.active {
     width: 100%;
 
  .hero-text   {
+
+   position: absolute; /* position relative à .hero */
+    bottom: 20px;       /* distance depuis le bas */
+    width: 100%;
     text-align: center; /* centre horizontalement */
     color: #0077B6;     /* couleur du texte, bleu océan */
 }
