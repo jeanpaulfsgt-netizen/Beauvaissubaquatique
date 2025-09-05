@@ -53,7 +53,7 @@ nav a.active {
     flex-direction: column;  /* texte en colonne */
     justify-content: center; /* centre verticalement */
     align-items: center;     /* centre horizontalement */
-    color: red;
+    color: #0077B6;
 }
 
 .hero h2 {
