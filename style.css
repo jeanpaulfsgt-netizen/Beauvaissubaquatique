@@ -47,8 +47,8 @@ nav a.active {
   text-align: center;
     background: url('images/hero.png') no-repeat center center; /* centre horizontal et vertical */
     background-size: contain;  /* ou cover selon le rendu */
-    width: 50%;              /* largeur de la bannière = largeur de la page */
-    height: 50%;            /* hauteur fixe ou ajustable */
+    width: 5%;              /* largeur de la bannière = largeur de la page */
+    height: 5%;            /* hauteur fixe ou ajustable */
     display: flex;
     align-items: center;      /* centre le texte verticalement */
     justify-content: center;  /* centre le texte horizontalement */
