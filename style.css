@@ -356,19 +356,21 @@ header .hamburger {
 }
 
 /* Par défaut : menu horizontal visible, burger caché */
+/* ===== Menu desktop ===== */
 #nav-links {
-  display: flex;
+  display: flex;      /* visible sur grand écran */
+  gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 .hamburger {
-  display: none;
+  display: none;      /* burger caché sur grand écran */
 }
 
-/* Responsive : écran ≤ 768px */
-
+/* ===== Mode mobile ===== */
 @media screen and (max-width: 768px) {
-
-   #nav-links {
+  #nav-links {
     display: none;              /* menu caché par défaut */
     flex-direction: column;
     gap: 10px;
@@ -379,17 +381,18 @@ header .hamburger {
     padding: 10px 20px;
     border-radius: 8px;
   }
-#nav-links.active {
+
+  #nav-links.active {
     display: flex;              /* menu visible quand burger cliqué */
   }
 
-
-  header .hamburger {
-
-    display: block;          /* affiche le hamburger */
-
+  .hamburger {
+    display: block;             /* burger visible uniquement en mobile */
+    font-size: 2em;
+    cursor: pointer;
+    color: white;
   }
-
+}
 
 
   header nav ul.active {
