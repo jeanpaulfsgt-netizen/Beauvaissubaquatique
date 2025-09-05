@@ -45,9 +45,9 @@ nav a.active {
 /* Hero accueil */
 .hero {
   text-align: center;
-  background: url('images/hero.png') no-repeat center/cover;
-  color: white;
-  padding: 100px 20px;
+    background: url('images/hero.png') no-repeat center/cover;
+    color: white;
+    padding: 100px 20px;
 }
 
 .hero h2 {
