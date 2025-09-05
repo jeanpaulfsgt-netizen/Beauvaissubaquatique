@@ -45,13 +45,13 @@ nav a.active {
 /* Hero accueil */
 .hero {
   text-align: center;
-  bottom: 20px; 
   background-image: url('images/hero.png');
-    background-repeat: no-repeat;
-    background-position: center center;
+  background-repeat: no-repeat;
+  background-position: center top;
     
   /*color: #fff;*/
-  padding: 100px 20px;
+  padding-top: 16em;
+  height:280px;
 }
 
 .hero h2 {
