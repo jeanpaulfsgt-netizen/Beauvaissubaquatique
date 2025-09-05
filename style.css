@@ -46,7 +46,7 @@ nav a.active {
 .hero {
   text-align: center;
   bottom: 20px; 
-  background: url('images/hero.png'); /*no-repeat center/cover; */
+  background: url('images/hero.png'); no-repeat /*center/cover; */
   color: #fff;
   padding: 100px 20px;
 }
