@@ -50,8 +50,7 @@ nav a.active {
     height: 100%;  /*hauteur de la bannière, modifiable */
     width: 100%;
 
-    bottom: 20px;       /* distance depuis le bas */
-    width: 100%;
+    
     text-align: center; /* centre horizontalement */
     color: #0077B6;     /* couleur du texte, bleu océan */
 }
