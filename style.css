@@ -334,122 +334,81 @@ header nav ul {
   display: flex;
 
   gap: 20px;
-
   margin: 0;
-
   padding: 0;
-
 }
-
-
-
-/* Hamburger caché par défaut */
-
-header .hamburger {
-
-  display: none;
-
-  font-size: 2em;
-
-  cursor: pointer;
-
-}
-
-/* Par défaut : menu horizontal visible, burger caché */
-/* ===== Menu desktop ===== */
 #nav-links {
-  display: flex;      /* visible sur grand écran */
+  display: flex;      /* menu horizontal */
   gap: 20px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.hamburger {
-  display: none;      /* burger caché sur grand écran */
+#nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-/* ===== Mode mobile ===== */
+#nav-links li a:hover {
+  color: #FFD166;
+}
+
+/* Burger menu caché par défaut sur grand écran */
+.hamburger {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+}
+
+/* ===== Responsive mobile ===== */
 @media screen and (max-width: 768px) {
+
+  /* Menu caché par défaut */
   #nav-links {
-    display: none;              /* menu caché par défaut */
-    flex-direction: column;
+    display: none;               /* caché tant que burger pas cliqué */
+    flex-direction: column;      /* vertical */
     gap: 10px;
     background-color: #0077B6;
     position: absolute;
-    top: 70px;
+    top: 70px;                   /* juste sous le header */
     right: 20px;
     padding: 10px 20px;
     border-radius: 8px;
   }
 
+  /* Menu visible quand burger cliqué */
   #nav-links.active {
-    display: flex;              /* menu visible quand burger cliqué */
+    display: flex;
   }
 
+  /* Burger visible en mobile */
   .hamburger {
-    display: block;             /* burger visible uniquement en mobile */
-    font-size: 2em;
-    cursor: pointer;
-    color: white;
+    display: block;
   }
 }
-
-
-  header nav ul.active {
-
-    display: flex;           /* affiche le menu quand actif */
-
-  }
-
-}
-
-
-
-/* Optionnel : style des liens */
-
 header nav ul li a {
-
   text-decoration: none;
-
   color: white;
-
   font-weight: bold;
-
 }
-
-
-
-
-
 header nav {
-
-
   display: flex;
-
-
   align-items: center;
-
-
   justify-content: space-between;
-
-
 }
-
-
-
-
-
 /* Logo + texte */
 .logo-container {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .logo-container img {
   height: 40px;
 }
-
 .logo-container h1 {
   font-size: 1.5em;
   margin: 0;
