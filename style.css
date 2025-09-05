@@ -439,13 +439,19 @@ header nav {
 
 
 
-header .logo img {
+/* Logo + texte */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.logo-container img {
+  height: 40px;
+}
 
-  display: block;
-
-
-  height: 50px; /* ajuste la taille */
-
-
+.logo-container h1 {
+  font-size: 1.5em;
+  margin: 0;
+  color: white;
 }
