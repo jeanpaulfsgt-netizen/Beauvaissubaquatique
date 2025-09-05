@@ -49,10 +49,7 @@ nav a.active {
     background-size: cover; /* l'image remplit le bloc */
     height: 100%;  /*hauteur de la bannière, modifiable */
     width: 100%;
-}
 
-.hero-text {
-    position: absolute; /* position du texte par rapport à .hero */
     bottom: 20px;       /* distance depuis le bas */
     width: 100%;
     text-align: center; /* centre horizontalement */
