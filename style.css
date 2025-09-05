@@ -379,7 +379,9 @@ header .hamburger {
     padding: 10px 20px;
     border-radius: 8px;
   }
-
+#nav-links.active {
+    display: flex;              /* menu visible quand burger cliqué */
+  }
 
 
   header .hamburger {
