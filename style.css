@@ -47,7 +47,7 @@ nav a.active {
     position: relative; /* référence pour le texte */
     background: url('images/hero.png') no-repeat center center;
     background-size: cover; /* l'image remplit le bloc */
-    /*height: 100%;  hauteur de la bannière, modifiable */
+    height: 100%;  /*hauteur de la bannière, modifiable */
     width: 100%;
 }
 
