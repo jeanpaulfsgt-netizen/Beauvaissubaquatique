@@ -124,3 +124,53 @@ footer {
   color: white;
   margin-top: 30px;
 }
+
+#contact {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#contact h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #005f99; /* bleu comme ton bandeau */
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#contact input,
+#contact textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+#contact button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #005f99;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#contact button:hover {
+  background: #004070;
+}
