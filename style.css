@@ -368,26 +368,16 @@ header .hamburger {
 
 @media screen and (max-width: 768px) {
 
-  header nav ul {
-
-    display: none;           /* cache le menu */
-
-    flex-direction: column;  /* menu vertical */
-
+   #nav-links {
+    display: none;              /* menu caché par défaut */
+    flex-direction: column;
     gap: 10px;
-
     background-color: #0077B6;
-
     position: absolute;
-
-    top: 60px;               /* ajuste selon la hauteur du header */
-
+    top: 70px;
     right: 20px;
-
     padding: 10px 20px;
-
     border-radius: 8px;
-
   }
 
 
