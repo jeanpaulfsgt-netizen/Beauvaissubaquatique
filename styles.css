@@ -1,0 +1,43 @@
+
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Formulaire */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px;
+  background: #004c70;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #004c70;
+  color: white;
+  margin-top: 30px;
+}
