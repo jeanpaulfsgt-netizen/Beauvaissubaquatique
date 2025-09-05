@@ -1,4 +1,83 @@
+/* Style global */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f9ff;
+  color: #333;
+}
 
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004c70;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+nav h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-left: 15px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Hero accueil */
+.hero {
+  text-align: center;
+  background: url('images/hero.png') no-repeat center/cover;
+  color: white;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff6600;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* Sections */
+main {
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
   border-radius: 10px;
   flex: 1;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
