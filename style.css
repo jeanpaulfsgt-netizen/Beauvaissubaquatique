@@ -50,9 +50,10 @@ nav a.active {
     width: 100%;              /* largeur de la bannière = largeur de la page */
     /*height: 50%;             hauteur fixe ou ajustable */
     display: flex;
-    align-items: center;      /* centre le texte verticalement */
-    justify-content: center;  /* centre le texte horizontalement */
-    color: white;
+    flex-direction: column;  /* texte en colonne */
+    justify-content: center; /* centre verticalement */
+    align-items: center;     /* centre horizontalement */
+    color: red;
 }
 
 .hero h2 {
