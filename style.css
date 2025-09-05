@@ -1,4 +1,4 @@
-/* Style global */
+* Style global */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -44,30 +44,14 @@ nav a.active {
 
 /* Hero accueil */
 .hero {
-    position: relative; /* référence pour le texte */
-    background: url('images/hero.png') no-repeat center center;
-    background-size: cover; /* l'image remplit le bloc */
-    height: 300px;  /*hauteur de la bannière, modifiable */
-    width: 100%;
-
- .hero-text   {
-
-   position: absolute; /* position relative à .hero */
-    bottom: 20px;       /* distance depuis le bas */
-    width: 100%;
-    text-align: center; /* centre horizontalement */
-    color: #0077B6;     /* couleur du texte, bleu océan */
+  text-align: center;
+  background: url('images/hero.jpg') no-repeat center/cover;
+  color: white;
+  padding: 100px 20px;
 }
 
-.hero-text h2 {
-    margin: 0;
-    font-size: 2.5em;
-    line-height: 1.2;
-}
-
-.hero-text p {
-    margin: 5px 0 0 0;
-    font-size: 1.5em;
+.hero h2 {
+  font-size: 2.5rem;
 }
 
 .btn {
