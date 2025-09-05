@@ -249,3 +249,14 @@ header nav ul li a {
   color: white;
   font-weight: bold;
 }
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo img {
+  display: block;
+  height: 50px; /* ajuste la taille */
+}
