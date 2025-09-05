@@ -44,27 +44,30 @@ nav a.active {
 
 /* Hero accueil */
 .hero {
-  text-align: center;
-    background: url('images/hero.png') no-repeat center center; /* centre horizontal et vertical */
-    background-size: contain;  /* ou cover selon le rendu */
-    width: 100%;              /* largeur de la bannière = largeur de la page */
-    /*height: 50%;             hauteur fixe ou ajustable */
-    display: flex;
-    flex-direction: column;  /* texte en colonne */
-    justify-content: center; /* centre verticalement */
-    align-items: center;     /* centre horizontalement */
-    color: #0077B6;
-}
-.hero-text {
-   
-    position: absolute; /* positionnement par rapport à .hero */
-    bottom: 20px;       /* distance depuis le bas de la bannière */
+    position: relative; /* référence pour le texte */
+    background: url('images/hero.png') no-repeat center center;
+    background-size: cover; /* l'image remplit le bloc */
+    height: 400px; /* hauteur de la bannière, modifiable */
     width: 100%;
-    text-align: center;
-    color: #0077B6;     /* ou le bleu que tu veux */
 }
-.hero h2 {
-  font-size: 2.5rem;
+
+.hero-text {
+    position: absolute; /* position du texte par rapport à .hero */
+    bottom: 20px;       /* distance depuis le bas */
+    width: 100%;
+    text-align: center; /* centre horizontalement */
+    color: #0077B6;     /* couleur du texte, bleu océan */
+}
+
+.hero-text h2 {
+    margin: 0;
+    font-size: 2.5em;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    margin: 5px 0 0 0;
+    font-size: 1.5em;
 }
 
 .btn {
