@@ -12,43 +12,13 @@
   <!-- Header -->
   <div id="header-placeholder"></div>
 
-  <!-- Galerie -->
-  <main>
-    <section class="gallery fade-in">
-      <h2>Nos images 📸</h2>
-
-      <!-- Onglets -->
-      <div class="tabs">
-        <button class="tab-button active" data-gallery="dossier1">Galerie 1</button>
-        <button class="tab-button" data-gallery="dossier2">Galerie 2</button>
-        <button class="tab-button" data-gallery="dossier3">Galerie 3</button>
-      </div>
-
-      <!-- Conteneurs des carrousels -->
-      <div class="carousel-container active" id="dossier1">
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-images"></div>
-          <button class="next">&#10095;</button>
-        </div>
-      </div>
-
-      <div class="carousel-container" id="dossier2">
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-images"></div>
-          <button class="next">&#10095;</button>
-        </div>
-      </div>
-
-      <div class="carousel-container" id="dossier3">
-        <div class="carousel">
-          <button class="prev">&#10094;</button>
-          <div class="carousel-images"></div>
-          <button class="next">&#10095;</button>
-        </div>
-      </div>
-    </section>
+  <!-- Section Galerie -->
+  <main class="gallery fade-in">
+    <h2>Nos galeries 📸</h2>
+    <div class="tabs">
+      <!-- Onglets générés automatiquement par JS -->
+    </div>
+    <!-- Carrousels générés automatiquement par JS -->
   </main>
 
   <!-- Footer -->
@@ -56,20 +26,8 @@
     © 2025 Beauvais Subaquatique
   </footer>
 
-  <!-- JS -->
-  <script src="galerie.js"></script> <!-- ton JS complet avec JSON ou PHP -->
-  <script>
-    // Animation fade-in au scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
+  <!-- JS externe -->
+  <script src="galerie.js"></script>
+
 </body>
 </html>
