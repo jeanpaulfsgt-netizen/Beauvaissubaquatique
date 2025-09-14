@@ -65,34 +65,59 @@
   </footer>
 
   <script>
-    fetch("header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
+  // === Header & burger ===
+  fetch("header.html")
+    .then(r => r.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+      if(hamburger){
+        hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
+      }
+    });
 
-        const hamburger = document.getElementById("hamburger");
-        const navLinks = document.getElementById("nav-links");
-        if (hamburger) {
-          hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-          });
-        }
-      });
+  // === Gestion des onglets ===
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const carousels = document.querySelectorAll(".carousel-container");
 
-    // === Script du carrousel ===
-    const carousel = document.querySelector(".carousel-images");
-    const images = document.querySelectorAll(".carousel-images img");
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      carousels.forEach(c => c.classList.remove("active"));
+      document.getElementById(btn.dataset.gallery).classList.add("active");
+    });
+  });
+
+  // === Carrousel automatique et manuel ===
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const imagesDiv = carousel.querySelector(".carousel-images");
+    const images = imagesDiv.querySelectorAll("img");
     let index = 0;
 
-    document.querySelector(".next").addEventListener("click", () => {
+    const showSlide = (i) => {
+      imagesDiv.style.transform = `translateX(${-i * 100}%)`;
+    }
+
+    // Flèches manuelles
+    carousel.querySelector(".next").addEventListener("click", () => {
       index = (index + 1) % images.length;
-      carousel.style.transform = `translateX(${-index * 100}%)`;
+      showSlide(index);
     });
 
-    document.querySelector(".prev").addEventListener("click", () => {
+    carousel.querySelector(".prev").addEventListener("click", () => {
       index = (index - 1 + images.length) % images.length;
-      carousel.style.transform = `translateX(${-index * 100}%)`;
+      showSlide(index);
     });
-  </script>
+
+    // Diaporama automatique toutes les 5 secondes
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    }, 5000);
+  });
+</script>
 </body>
 </html>
