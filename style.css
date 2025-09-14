@@ -46,11 +46,10 @@ nav a.active {
 
   background-image: url('images/hero.png');
   background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: center;
-
-  height: 80vh;         /* prend 80% de la hauteur de l'écran */
-  padding-bottom: 0;   /* espace en bas adaptable */
+  background-size: 25%;
+  background-position: center top;
+  height: 55vh;
+  padding-bottom: 0;
 }
 .hero h2 {
   font-size: 2.5rem;
