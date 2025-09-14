@@ -5,130 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Images</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
+
+  <!-- Header -->
   <div id="header-placeholder"></div>
 
+  <!-- Galerie -->
   <main>
-  <section class="gallery">
-    <h2>Nos images 📸</h2>
+    <section class="gallery fade-in">
+      <h2>Nos images 📸</h2>
 
-    <!-- Onglets des sous-galeries -->
-    <div class="tabs">
-      <button class="tab-button active" data-gallery="plongee">Estartit 2025</button>
-      <button class="tab-button" data-gallery="apnee">Belgique 2025</button>
-      <button class="tab-button" data-gallery="pmt">Picine et fosse 2025</button>
-    </div>
-
-    <!-- Conteneurs des carrousels -->
-    <div class="carousel-container active" id="plongee">
-      <div class="carousel">
-        <button class="prev">&#10094;</button>
-        <div class="carousel-images">
-          <img src="images/plongee1.jpg" alt="Plongée 1">
-          <img src="images/plongee2.jpg" alt="Plongée 2">
-          <img src="images/plongee3.jpg" alt="Plongée 3">
-        </div>
-        <button class="next">&#10095;</button>
+      <!-- Onglets -->
+      <div class="tabs">
+        <button class="tab-button active" data-gallery="dossier1">Galerie 1</button>
+        <button class="tab-button" data-gallery="dossier2">Galerie 2</button>
+        <button class="tab-button" data-gallery="dossier3">Galerie 3</button>
       </div>
-    </div>
 
-    <div class="carousel-container" id="apnee">
-      <div class="carousel">
-        <button class="prev">&#10094;</button>
-        <div class="carousel-images">
-          <img src="images/apnee1.jpg" alt="Apnée 1">
-          <img src="images/apnee2.jpg" alt="Apnée 2">
-          <img src="images/apnee3.jpg" alt="Apnée 3">
+      <!-- Conteneurs des carrousels -->
+      <div class="carousel-container active" id="dossier1">
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="carousel-images"></div>
+          <button class="next">&#10095;</button>
         </div>
-        <button class="next">&#10095;</button>
       </div>
-    </div>
 
-    <div class="carousel-container" id="pmt">
-      <div class="carousel">
-        <button class="prev">&#10094;</button>
-        <div class="carousel-images">
-          <img src="images/pmt1.jpg" alt="Natation PMT 1">
-          <img src="images/pmt2.jpg" alt="Natation PMT 2">
+      <div class="carousel-container" id="dossier2">
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="carousel-images"></div>
+          <button class="next">&#10095;</button>
         </div>
-        <button class="next">&#10095;</button>
       </div>
-    </div>
 
-  </section>
-</main>
+      <div class="carousel-container" id="dossier3">
+        <div class="carousel">
+          <button class="prev">&#10094;</button>
+          <div class="carousel-images"></div>
+          <button class="next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Beauvais Subaquatique - Tous droits réservés</p>
+    © 2025 Beauvais Subaquatique
   </footer>
 
+  <!-- JS -->
+  <script src="galerie.js"></script> <!-- ton JS complet avec JSON ou PHP -->
   <script>
-  // === Header & burger ===
-  fetch("header.html")
-  .then(r => r.text())
-  .then(data => {
-    document.getElementById("header-placeholder").innerHTML = data;
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-    if(hamburger){
-      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
-    }
-  });
-
-// === Onglets ===
-const tabButtons = document.querySelectorAll(".tab-button");
-const carousels = document.querySelectorAll(".carousel-container");
-
-tabButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    tabButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    carousels.forEach(c => c.classList.remove("active"));
-    document.getElementById(btn.dataset.gallery).classList.add("active");
-  });
-});
-
-// === Charger images automatiquement depuis images.json ===
-fetch("images/images.json")
-  .then(r => r.json())
-  .then(data => {
-    Object.keys(data).forEach(dossier => {
-      const container = document.getElementById(dossier).querySelector(".carousel-images");
-      data[dossier].forEach(filename => {
-        const img = document.createElement("img");
-        img.src = `images/${dossier}/${filename}`;
-        container.appendChild(img);
+    // Animation fade-in au scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       });
-    });
-
-    // === Initialiser les carrousels (manuel + auto) ===
-    document.querySelectorAll(".carousel").forEach(carousel => {
-      const imagesDiv = carousel.querySelector(".carousel-images");
-      const images = imagesDiv.querySelectorAll("img");
-      let index = 0;
-
-      const showSlide = i => imagesDiv.style.transform = `translateX(${-i*100}%)`;
-
-      // Flèches manuelles
-      carousel.querySelector(".next").addEventListener("click", () => {
-        index = (index+1)%images.length;
-        showSlide(index);
-      });
-      carousel.querySelector(".prev").addEventListener("click", () => {
-        index = (index-1+images.length)%images.length;
-        showSlide(index);
-      });
-
-      // Diaporama automatique toutes les 5 secondes
-      setInterval(() => {
-        index = (index+1)%images.length;
-        showSlide(index);
-      }, 5000);
-    });
-  });
-</script>
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
