@@ -424,7 +424,7 @@ header nav {
 
 .carousel {
   position: relative;
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   margin: 20px auto;
   overflow: hidden;
