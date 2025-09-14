@@ -11,20 +11,54 @@
   <div id="header-placeholder"></div>
 
   <main>
-    <section class="gallery">
-      <h2>Nos images 📸</h2>
+  <section class="gallery">
+    <h2>Nos images 📸</h2>
+
+    <!-- Onglets des sous-galeries -->
+    <div class="tabs">
+      <button class="tab-button active" data-gallery="plongee">Plongée bouteille</button>
+      <button class="tab-button" data-gallery="apnee">Apnée</button>
+      <button class="tab-button" data-gallery="pmt">Natation PMT</button>
+    </div>
+
+    <!-- Conteneurs des carrousels -->
+    <div class="carousel-container active" id="plongee">
       <div class="carousel">
         <button class="prev">&#10094;</button>
         <div class="carousel-images">
-          <img src="images/photo1.jpg" alt="Plongée 1">
-          <img src="images/photo2.jpg" alt="Plongée 2">
-          <img src="images/photo3.jpg" alt="Plongée 3">
-          <img src="images/photo4.jpg" alt="Plongée 4">
+          <img src="images/plongee1.jpg" alt="Plongée 1">
+          <img src="images/plongee2.jpg" alt="Plongée 2">
+          <img src="images/plongee3.jpg" alt="Plongée 3">
         </div>
         <button class="next">&#10095;</button>
       </div>
-    </section>
-  </main>
+    </div>
+
+    <div class="carousel-container" id="apnee">
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-images">
+          <img src="images/apnee1.jpg" alt="Apnée 1">
+          <img src="images/apnee2.jpg" alt="Apnée 2">
+          <img src="images/apnee3.jpg" alt="Apnée 3">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="carousel-container" id="pmt">
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-images">
+          <img src="images/pmt1.jpg" alt="Natation PMT 1">
+          <img src="images/pmt2.jpg" alt="Natation PMT 2">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </div>
+
+  </section>
+</main>
 
   <footer>
     <p>&copy; 2025 Beauvais Subaquatique - Tous droits réservés</p>
