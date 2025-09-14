@@ -50,7 +50,7 @@ nav a.active {
   background-position: center;
 
   height: 80vh;         /* prend 80% de la hauteur de l'écran */
-  padding-bottom: 5%;   /* espace en bas adaptable */
+  padding-bottom: 0;   /* espace en bas adaptable */
 }
 .hero h2 {
   font-size: 2.5rem;
