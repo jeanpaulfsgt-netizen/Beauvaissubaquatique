@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie - Beauvais Subaquatique</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <main>
+    <section class="gallery">
+      <h2>Nos images 📸</h2>
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-images">
+          <img src="images/photo1.jpg" alt="Plongée 1">
+          <img src="images/photo2.jpg" alt="Plongée 2">
+          <img src="images/photo3.jpg" alt="Plongée 3">
+          <img src="images/photo4.jpg" alt="Plongée 4">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Beauvais Subaquatique - Tous droits réservés</p>
+  </footer>
+
+  <script>
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("nav-links");
+        if (hamburger) {
+          hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+          });
+        }
+      });
+
+    // === Script du carrousel ===
+    const carousel = document.querySelector(".carousel-images");
+    const images = document.querySelectorAll(".carousel-images img");
+    let index = 0;
+
+    document.querySelector(".next").addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      carousel.style.transform = `translateX(${-index * 100}%)`;
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      carousel.style.transform = `translateX(${-index * 100}%)`;
+    });
+  </script>
+</body>
+</html>
