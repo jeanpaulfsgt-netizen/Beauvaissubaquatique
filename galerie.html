@@ -1,4 +1,4 @@
-tartit 2025<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -67,56 +67,67 @@ tartit 2025<!DOCTYPE html>
   <script>
   // === Header & burger ===
   fetch("header.html")
-    .then(r => r.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("nav-links");
-      if(hamburger){
-        hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
-      }
-    });
-
-  // === Gestion des onglets ===
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const carousels = document.querySelectorAll(".carousel-container");
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      tabButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      carousels.forEach(c => c.classList.remove("active"));
-      document.getElementById(btn.dataset.gallery).classList.add("active");
-    });
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("header-placeholder").innerHTML = data;
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    if(hamburger){
+      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
+    }
   });
 
-  // === Carrousel automatique et manuel ===
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const imagesDiv = carousel.querySelector(".carousel-images");
-    const images = imagesDiv.querySelectorAll("img");
-    let index = 0;
+// === Onglets ===
+const tabButtons = document.querySelectorAll(".tab-button");
+const carousels = document.querySelectorAll(".carousel-container");
 
-    const showSlide = (i) => {
-      imagesDiv.style.transform = `translateX(${-i * 100}%)`;
-    }
+tabButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    tabButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
 
-    // Flèches manuelles
-    carousel.querySelector(".next").addEventListener("click", () => {
-      index = (index + 1) % images.length;
-      showSlide(index);
+    carousels.forEach(c => c.classList.remove("active"));
+    document.getElementById(btn.dataset.gallery).classList.add("active");
+  });
+});
+
+// === Charger images automatiquement depuis images.json ===
+fetch("images/images.json")
+  .then(r => r.json())
+  .then(data => {
+    Object.keys(data).forEach(dossier => {
+      const container = document.getElementById(dossier).querySelector(".carousel-images");
+      data[dossier].forEach(filename => {
+        const img = document.createElement("img");
+        img.src = `images/${dossier}/${filename}`;
+        container.appendChild(img);
+      });
     });
 
-    carousel.querySelector(".prev").addEventListener("click", () => {
-      index = (index - 1 + images.length) % images.length;
-      showSlide(index);
-    });
+    // === Initialiser les carrousels (manuel + auto) ===
+    document.querySelectorAll(".carousel").forEach(carousel => {
+      const imagesDiv = carousel.querySelector(".carousel-images");
+      const images = imagesDiv.querySelectorAll("img");
+      let index = 0;
 
-    // Diaporama automatique toutes les 5 secondes
-    setInterval(() => {
-      index = (index + 1) % images.length;
-      showSlide(index);
-    }, 5000);
+      const showSlide = i => imagesDiv.style.transform = `translateX(${-i*100}%)`;
+
+      // Flèches manuelles
+      carousel.querySelector(".next").addEventListener("click", () => {
+        index = (index+1)%images.length;
+        showSlide(index);
+      });
+      carousel.querySelector(".prev").addEventListener("click", () => {
+        index = (index-1+images.length)%images.length;
+        showSlide(index);
+      });
+
+      // Diaporama automatique toutes les 5 secondes
+      setInterval(() => {
+        index = (index+1)%images.length;
+        showSlide(index);
+      }, 5000);
+    });
   });
 </script>
 </body>
