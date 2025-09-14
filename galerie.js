@@ -1,3 +1,15 @@
+// ===== Charger le header =====
+fetch("header.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("header-placeholder").innerHTML = data;
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    if(hamburger){
+      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
+    }
+  });
+
 fetch("images/images.json")
   .then(r => r.json())
   .then(data => {
