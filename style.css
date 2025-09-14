@@ -38,11 +38,19 @@ nav a.active {
 }
 /* Hero accueil */
 .hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* descend le contenu en bas */
+  align-items: center;
   text-align: center;
+
   background-image: url('images/hero.png');
   background-repeat: no-repeat;
-  background-position: center top;
-  padding: 12em 20px 4em; /* haut + côtés + bas */
+  background-size: cover;
+  background-position: center;
+
+  height: 80vh;         /* prend 80% de la hauteur de l'écran */
+  padding-bottom: 5%;   /* espace en bas adaptable */
 }
 .hero h2 {
   font-size: 2.5rem;
