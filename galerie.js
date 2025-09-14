@@ -1,19 +1,7 @@
-// ===== Charger le header =====
-fetch("header.html")
-  .then(r => r.text())
-  .then(data => {
-    document.getElementById("header-placeholder").innerHTML = data;
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-    if(hamburger){
-      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
-    }
-  });
-
 fetch("images/images.json")
   .then(r => r.json())
   .then(data => {
-    const galeries = data.galeries;
+    const galeries = data; // ton JSON n'a pas de clé "galeries"
     const tabsContainer = document.querySelector(".tabs");
     const mainContainer = document.querySelector("main");
 
@@ -45,9 +33,10 @@ fetch("images/images.json")
       const imagesDiv = document.createElement("div");
       imagesDiv.className = "carousel-images";
 
+      // === Ajouter les images avec le chemin complet ===
       galeries[nom].forEach(f => {
         const img = document.createElement("img");
-        img.src = `images/${f}`;
+        img.src = `images/${nom}/${f}`; // nom du dossier + nom du fichier
         imagesDiv.appendChild(img);
       });
 
@@ -58,7 +47,7 @@ fetch("images/images.json")
       mainContainer.appendChild(carouselContainer);
     });
 
-    // === Initialiser onglets ===
+    // === Gestion des clics sur les onglets ===
     const tabButtons = document.querySelectorAll(".tab-button");
     const carousels = document.querySelectorAll(".carousel-container");
     tabButtons.forEach(btn => {
@@ -70,5 +59,6 @@ fetch("images/images.json")
       });
     });
 
+    // === Initialiser les carrousels ===
     initCarousels();
   });
