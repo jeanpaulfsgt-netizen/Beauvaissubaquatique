@@ -1,6 +1,6 @@
 {
-  "dossier1": ["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
+  "dossier1": ["image1.jpg","image2.jpg","image3.jpg""],
   "dossier2": ["image1.jpg","image2.jpg","image3.jpg"],
   "dossier3": ["image1.jpg","image2.jpg","image3.jpg"],
-  "estartit": ["image1.jpg","image2.jpg","image3.jpg"]
+  "estartit": ["image1.jpg"]
 }
