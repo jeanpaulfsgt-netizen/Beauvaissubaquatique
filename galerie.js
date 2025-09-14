@@ -1,7 +1,20 @@
+// ===== Charger le header =====
+fetch("header.html")
+  .then(r => r.text())
+  .then(data => {
+    document.getElementById("header-placeholder").innerHTML = data;
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    if(hamburger){
+      hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
+    }
+  });
+
+// ===== Charger les galeries =====
 fetch("images/images.json")
   .then(r => r.json())
   .then(data => {
-    const galeries = data; // ton JSON n'a pas de clé "galeries"
+    const galeries = data; // ton JSON actuel
     const tabsContainer = document.querySelector(".tabs");
     const mainContainer = document.querySelector("main");
 
@@ -36,7 +49,7 @@ fetch("images/images.json")
       // === Ajouter les images avec le chemin complet ===
       galeries[nom].forEach(f => {
         const img = document.createElement("img");
-        img.src = `images/${nom}/${f}`; // nom du dossier + nom du fichier
+        img.src = `images/${nom}/${f}`;
         imagesDiv.appendChild(img);
       });
 
@@ -62,3 +75,36 @@ fetch("images/images.json")
     // === Initialiser les carrousels ===
     initCarousels();
   });
+
+// ===== Fonction pour gérer le défilement des carrousels =====
+function initCarousels() {
+  const carousels = document.querySelectorAll(".carousel");
+
+  carousels.forEach(carousel => {
+    const imagesDiv = carousel.querySelector(".carousel-images");
+    const imgs = imagesDiv.querySelectorAll("img");
+    let index = 0;
+
+    const prev = carousel.querySelector(".prev");
+    const next = carousel.querySelector(".next");
+
+    function showImage(i) {
+      imgs.forEach((img, idx) => {
+        img.style.display = idx === i ? "block" : "none";
+      });
+    }
+
+    prev.addEventListener("click", () => {
+      index = (index - 1 + imgs.length) % imgs.length;
+      showImage(index);
+    });
+
+    next.addEventListener("click", () => {
+      index = (index + 1) % imgs.length;
+      showImage(index);
+    });
+
+    // Affiche la première image au démarrage
+    showImage(index);
+  });
+}
