@@ -1,5 +1,5 @@
 {
   "dossier1": ["image1.jpg","image2.jpg","image3.jpg","image4.jpg"],
   "dossier2": ["image1.jpg","image2.jpg"],
-  "dossier3": ["image1.jpg","image2.png","image3.png"]
+  "dossier3": ["image1.jpg","image2.jpg","image3.jpg"]
 }
