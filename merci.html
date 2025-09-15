@@ -26,5 +26,25 @@
   <footer>
     <p>&copy; 2025 Beauvais Subaquatique – Tous droits réservés</p>
   </footer>
+
+<script>
+  // Charger le header.html dans le div#header-placeholder
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+
+      // Activer le menu hamburger
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+      if(hamburger){
+        hamburger.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+    })
+    .catch(error => console.error('Erreur lors du chargement du header:', error));
+</script>
+
 </body>
 </html>
